@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Platinum — GTA VI Trophy Guide &amp; Tracker</title>
+<meta name="description" content="A complete offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: roadmap to the platinum, missable flags, cited guides, and saved progress.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-text">
+    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; 55 trophies</p>
+    <h1>Leonida Platinum</h1>
+    <p class="lede">Every trophy, in your own words, with its sources — plus a tracker that remembers your hunt. Works fully offline; nothing leaves this page.</p>
+  </div>
+  <div class="progress-box" id="progressBox" aria-label="Platinum progress">
+    <div class="progress-ring" id="progressRing"><span id="progressPct">0%</span></div>
+    <p class="progress-line"><strong id="progressCount">0 of 55</strong> earned</p>
+    <p class="progress-grades" id="progressGrades"></p>
+    <p class="progress-next" id="progressNext"></p>
+  </div>
+</header>
+
+<section class="toolbar" aria-label="Filters and progress tools">
+  <div class="toolbar-row">
+    <label class="search">Search
+      <input id="search" type="search" placeholder="Trophy, mission, place…" autocomplete="off">
+    </label>
+    <label class="grade">Grade
+      <select id="grade">
+        <option value="all">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+    </label>
+    <label class="toggle"><input id="spoilers" type="checkbox" checked> Hide spoilers</label>
+    <label class="toggle"><input id="earnedOnly" type="checkbox"> Earned only</label>
+  </div>
+  <div class="toolbar-row">
+    <div class="chips" id="kindChips" role="group" aria-label="Filter by kind">
+      <button type="button" data-kind="all" class="chip active">All 55</button>
+      <button type="button" data-kind="story" class="chip">Story</button>
+      <button type="button" data-kind="missable" class="chip">Missable</button>
+      <button type="button" data-kind="collectibles" class="chip">Collectibles</button>
+      <button type="button" data-kind="activities" class="chip">Activities</button>
+      <button type="button" data-kind="online" class="chip">Online</button>
+    </div>
+    <div class="tools">
+      <button id="exportBtn" type="button">Export progress</button>
+      <label class="import-btn">Import progress <input id="importFile" type="file" accept="application/json,.json"></label>
+      <button id="resetBtn" type="button">Reset</button>
+    </div>
+  </div>
+  <p class="toolbar-note" id="filterNote"></p>
+</section>
+
+<section class="warning" id="missableBox">
+  <h2>Watch out: possibly missable</h2>
+  <p>No verified missable list exists yet — the game has only just come out, and PlanetGTA6 says so plainly. Two trophies carry a real warning, and both are flagged in the list below:</p>
+  <ul>
+    <li><strong>Positive Mental Attitude</strong> — GTABase reports a meditation with Lucia on a balcony in Chapter 1. The game has no mission replay, so do it the moment it is offered.</li>
+    <li><strong>Actions Speak Louder</strong> — GTABase warns the Irredeemable criminal profile is permanent. Save before any big choice.</li>
+  </ul>
+  <p>General rule until a verified list exists: keep a manual save before every big mission and every big choice. The game has 15 manual save slots (Games.gg). And keep cheats off — PowerPyx reports a cheat disables trophies, and saving stops working once one is used.</p>
+</section>
+
+<section class="roadmap" id="roadmap" aria-label="Roadmap to the platinum">
+  <h2>Roadmap to the platinum</h2>
+  <p class="roadmap-intro">One playthrough is enough — there are no difficulty settings and no New Game+. GTABase puts the platinum at around 200 hours, most of it on the 100% checklist. Work the stages in order.</p>
+  <div class="stages" id="stages"></div>
+</section>
+
+<main class="layout">
+  <section class="list-col" aria-label="Trophy checklist">
+    <h2 id="listHeading">All trophies <span id="listCount"></span></h2>
+    <p class="empty" id="emptyMsg" hidden></p>
+    <div class="cards" id="cards"></div>
+  </section>
+  <aside class="detail-col" aria-label="Trophy guide detail">
+    <div class="detail" id="detail">
+      <p class="detail-empty">Select a trophy to read its full guide, steps and sources.</p>
+    </div>
+  </aside>
+</main>
+
+<footer class="sources">
+  <h2>Where every fact comes from</h2>
+  <p>Official names, descriptions and grades are as PlayStation publishes them, via the trophy lists Exophase and PSNProfiles published on 18 November 2026 (28 of the 55 are hidden on PlayStation until earned). Every guide on this page is written for this entry, in our own words, and cites its sources beside the trophy. The roadmap, the missable warnings and the counts draw on:</p>
+  <ul>
+    <li><a href="https://www.gtabase.com/articles/gta-6/gta-6-achievements-trophies-list-ps5-xbox-series">GTABase — GTA 6 Trophy Guide &amp; Achievements List</a> (roadmap, ~200 hours to platinum, no mission replay, the Chapter 1 meditation warning, the Irredeemable profile warning)</li>
+    <li><a href="https://www.planetgta6.com/en/gta-6-trophies/">PlanetGTA6 — GTA 6 Trophies</a> (the 27 visible / 28 hidden split, no verified missable list yet, cheats disable trophies via PowerPyx)</li>
+    <li><a href="https://games.gg/grand-theft-auto-vi/guides/complete-grand-theft-auto-6-trophy-list/">Games.gg — GTA 6 Trophy List</a> (no mission replay, 15 manual save slots)</li>
+    <li><a href="https://gtadb.net/articles/gta-6-trophies-platinum-guide/?show_secrets=1">GTADB — GTA 6 PS5 Trophies &amp; Platinum Guide</a></li>
+    <li><a href="https://www.gtaboom.com/every-gta-6-trophy-and-achievement-at-launch-and-how-to-unlock-them-fc5f">GTA BOOM — GTA 6 Trophy and Achievement List</a></li>
+  </ul>
+  <p class="fineprint">This guide is unofficial and not affiliated with Rockstar Games. No Rockstar logo, artwork or game imagery is used here; the look is our own. All 55 trophies are single-player — there are no online trophies in the list.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
