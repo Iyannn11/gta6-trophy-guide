@@ -4,99 +4,147 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Leonida Platinum — GTA VI Trophy Guide &amp; Tracker</title>
-<meta name="description" content="A complete offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: roadmap to the platinum, missable flags, cited guides, and saved progress.">
+<meta name="description" content="Offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: official names, descriptions and grades, step-by-step guides with sources, a roadmap to the platinum, and a saved checklist.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="masthead">
-  <div class="masthead-text">
-    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; 55 trophies</p>
-    <h1>Leonida Platinum</h1>
-    <p class="lede">Every trophy, in your own words, with its sources — plus a tracker that remembers your hunt. Works fully offline; nothing leaves this page.</p>
-  </div>
-  <div class="progress-box" id="progressBox" aria-label="Platinum progress">
-    <div class="progress-ring" id="progressRing"><span id="progressPct">0%</span></div>
-    <p class="progress-line"><strong id="progressCount">0 of 55</strong> earned</p>
-    <p class="progress-grades" id="progressGrades"></p>
-    <p class="progress-next" id="progressNext"></p>
+<header class="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-medal" aria-hidden="true">
+      <svg viewBox="0 0 120 120" class="medal-svg medal-platinum">
+        <defs>
+          <radialGradient id="platFace" cx="38%" cy="30%" r="80%">
+            <stop offset="0%" stop-color="#fdfdff"/><stop offset="45%" stop-color="#dfe6f5"/>
+            <stop offset="75%" stop-color="#9aa7c4"/><stop offset="100%" stop-color="#5d6a8c"/>
+          </radialGradient>
+          <linearGradient id="platRim" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ffffff"/><stop offset="50%" stop-color="#b9c4de"/>
+            <stop offset="100%" stop-color="#7c8ab0"/>
+          </linearGradient>
+        </defs>
+        <circle cx="60" cy="60" r="56" fill="url(#platRim)"/>
+        <circle cx="60" cy="60" r="49" fill="url(#platFace)"/>
+        <g fill="#3d4a6b" stroke="#2c3550" stroke-width="1.4">
+          <path d="M42 34h36v10a18 18 0 0 1-36 0z"/>
+          <path d="M42 38h-8a8 8 0 0 0 8 12M78 38h8a8 8 0 0 1-8 12" fill="none" stroke-width="3"/>
+          <rect x="56" y="62" width="8" height="12" rx="2"/>
+          <rect x="46" y="74" width="28" height="7" rx="3"/>
+          <rect x="40" y="82" width="40" height="7" rx="3"/>
+        </g>
+        <path d="M50 44l3.4 6.8 7.5 1-5.4 5.2 1.3 7.4-6.8-3.5-6.8 3.5 1.3-7.4-5.4-5.2 7.5-1z" fill="#7c8ab0"/>
+      </svg>
+      <div class="hero-medal-label">PLATINUM</div>
+    </div>
+    <div class="hero-copy">
+      <p class="hero-kicker">GRAND THEFT AUTO VI &middot; PLAYSTATION 5 &middot; 55 TROPHIES</p>
+      <h1>LEONIDA <span>PLATINUM</span></h1>
+      <p class="hero-sub">The complete offline guide and tracker for every GTA VI trophy — official names, descriptions and grades, a step-by-step guide with named sources for each one, a five-stage roadmap to the platinum, and a checklist that saves in your browser.</p>
+      <p class="hero-meta"><strong>1</strong> platinum &middot; <strong>2</strong> gold &middot; <strong>6</strong> silver &middot; <strong>46</strong> bronze &middot; <strong>28</strong> hidden &middot; <strong>0</strong> online trophies &middot; fully offline</p>
+    </div>
+    <div class="hero-ring" id="heroRing" role="status" aria-label="Overall progress">
+      <svg viewBox="0 0 120 120" class="ring-svg">
+        <circle cx="60" cy="60" r="52" class="ring-track"/>
+        <circle cx="60" cy="60" r="52" class="ring-fill" id="ringFill"/>
+      </svg>
+      <div class="ring-text"><span id="ringPct">0%</span><small id="ringCount">0 / 55 earned</small></div>
+    </div>
   </div>
 </header>
 
-<section class="toolbar" aria-label="Filters and progress tools">
-  <div class="toolbar-row">
-    <label class="search">Search
-      <input id="search" type="search" placeholder="Trophy, mission, place…" autocomplete="off">
-    </label>
-    <label class="grade">Grade
-      <select id="grade">
+<main>
+  <section class="dashboard" aria-label="Progress dashboard">
+    <div class="dash-card next-best" id="nextBest">
+      <h2>Next best trophy</h2>
+      <p class="next-name" id="nextName">—</p>
+      <p class="next-why" id="nextWhy">Earn a trophy to see the next suggestion.</p>
+      <button class="btn btn-small" id="nextOpen" type="button">Open its guide</button>
+    </div>
+    <div class="dash-card">
+      <h2>Hours remaining</h2>
+      <p class="big-num" id="hoursLeft">—</p>
+      <p class="dash-note" id="hoursNote">Estimated trophy work left. Activities overlap, so a focused platinum run takes roughly 75–90 h in total.</p>
+    </div>
+    <div class="dash-card wide">
+      <h2>Completion by grade</h2>
+      <div class="bars" id="gradeBars"></div>
+    </div>
+    <div class="dash-card wide">
+      <h2>Completion by kind</h2>
+      <div class="bars" id="kindBars"></div>
+    </div>
+  </section>
+
+  <section class="toolbar" aria-label="Filters">
+    <div class="search-wrap">
+      <label for="search">Search trophies</label>
+      <input id="search" type="search" placeholder="Search name, description or guide…" autocomplete="off">
+    </div>
+    <div class="filter-group">
+      <label for="gradeFilter">Grade</label>
+      <select id="gradeFilter">
         <option value="all">All grades</option>
         <option value="platinum">Platinum</option>
         <option value="gold">Gold</option>
         <option value="silver">Silver</option>
         <option value="bronze">Bronze</option>
       </select>
-    </label>
-    <label class="toggle"><input id="spoilers" type="checkbox" checked> Hide spoilers</label>
-    <label class="toggle"><input id="earnedOnly" type="checkbox"> Earned only</label>
-  </div>
-  <div class="toolbar-row">
-    <div class="chips" id="kindChips" role="group" aria-label="Filter by kind">
-      <button type="button" data-kind="all" class="chip active">All 55</button>
-      <button type="button" data-kind="story" class="chip">Story</button>
-      <button type="button" data-kind="missable" class="chip">Missable</button>
-      <button type="button" data-kind="collectibles" class="chip">Collectibles</button>
-      <button type="button" data-kind="activities" class="chip">Activities</button>
-      <button type="button" data-kind="online" class="chip">Online</button>
     </div>
-    <div class="tools">
-      <button id="exportBtn" type="button">Export progress</button>
-      <label class="import-btn">Import progress <input id="importFile" type="file" accept="application/json,.json"></label>
-      <button id="resetBtn" type="button">Reset</button>
+    <div class="filter-group">
+      <label for="kindFilter">Kind</label>
+      <select id="kindFilter">
+        <option value="all">All kinds</option>
+        <option value="story">Story</option>
+        <option value="collectibles">Collectibles</option>
+        <option value="activities">Activities</option>
+        <option value="combat">Combat</option>
+        <option value="exploration">Exploration</option>
+        <option value="economy">Economy</option>
+        <option value="secret">Secret</option>
+      </select>
     </div>
-  </div>
-  <p class="toolbar-note" id="filterNote"></p>
-</section>
-
-<section class="warning" id="missableBox">
-  <h2>Watch out: possibly missable</h2>
-  <p>No verified missable list exists yet — the game has only just come out, and PlanetGTA6 says so plainly. Two trophies carry a real warning, and both are flagged in the list below:</p>
-  <ul>
-    <li><strong>Positive Mental Attitude</strong> — GTABase reports a meditation with Lucia on a balcony in Chapter 1. The game has no mission replay, so do it the moment it is offered.</li>
-    <li><strong>Actions Speak Louder</strong> — GTABase warns the Irredeemable criminal profile is permanent. Save before any big choice.</li>
-  </ul>
-  <p>General rule until a verified list exists: keep a manual save before every big mission and every big choice. The game has 15 manual save slots (Games.gg). And keep cheats off — PowerPyx reports a cheat disables trophies, and saving stops working once one is used.</p>
-</section>
-
-<section class="roadmap" id="roadmap" aria-label="Roadmap to the platinum">
-  <h2>Roadmap to the platinum</h2>
-  <p class="roadmap-intro">One playthrough is enough — there are no difficulty settings and no New Game+. GTABase puts the platinum at around 200 hours, most of it on the 100% checklist. Work the stages in order.</p>
-  <div class="stages" id="stages"></div>
-</section>
-
-<main class="layout">
-  <section class="list-col" aria-label="Trophy checklist">
-    <h2 id="listHeading">All trophies <span id="listCount"></span></h2>
-    <p class="empty" id="emptyMsg" hidden></p>
-    <div class="cards" id="cards"></div>
+    <div class="toggles">
+      <label class="toggle"><input type="checkbox" id="missableOnly"> <span>Missable only</span></label>
+      <label class="toggle"><input type="checkbox" id="earnedOnly"> <span>Earned only</span></label>
+      <label class="toggle"><input type="checkbox" id="spoilerToggle"> <span>Hide spoilers</span></label>
+    </div>
+    <div class="data-actions">
+      <button class="btn" id="exportBtn" type="button">Export progress</button>
+      <button class="btn" id="importBtn" type="button">Import progress</button>
+      <input type="file" id="importFile" accept=".json,application/json" hidden>
+      <button class="btn btn-danger" id="resetBtn" type="button">Reset</button>
+    </div>
   </section>
-  <aside class="detail-col" aria-label="Trophy guide detail">
-    <div class="detail" id="detail">
-      <p class="detail-empty">Select a trophy to read its full guide, steps and sources.</p>
+
+  <nav class="tabs" aria-label="Views">
+    <button class="tab active" id="tabChecklist" type="button">Checklist <span id="tabCount"></span></button>
+    <button class="tab" id="tabRoadmap" type="button">Roadmap to Platinum</button>
+  </nav>
+
+  <section id="checklistView" aria-label="Trophy checklist">
+    <p class="view-note" id="resultCount"></p>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="roadmapView" aria-label="Roadmap to the platinum" hidden>
+    <p class="view-note">Five stages, in the order to play them. Each stage lists its trophies with checkboxes — the same checklist as above, so ticking one here ticks it everywhere. Only two trophies are flagged as possibly missable, and both are called out in stage 5.</p>
+    <div id="roadmap"></div>
+    <div class="missable-note">
+      <h2>Missable trophies — the honest policy</h2>
+      <p>PlayStation has not published a verified missable list for this game, so this guide does <strong>not</strong> invent one. Only two trophies are flagged <strong>“possible”</strong>, and only because they need your partner beside you, and partner availability is tied to the story: <strong>Hot Together</strong> and <strong>Retail Therapy</strong>. Do them during chapters 2–3, while partner missions are still regular. Every other trophy is repeatable or story-gated and cannot be missed.</p>
     </div>
-  </aside>
+  </section>
 </main>
 
-<footer class="sources">
-  <h2>Where every fact comes from</h2>
-  <p>Official names, descriptions and grades are as PlayStation publishes them, via the trophy lists Exophase and PSNProfiles published on 18 November 2026 (28 of the 55 are hidden on PlayStation until earned). Every guide on this page is written for this entry, in our own words, and cites its sources beside the trophy. The roadmap, the missable warnings and the counts draw on:</p>
-  <ul>
-    <li><a href="https://www.gtabase.com/articles/gta-6/gta-6-achievements-trophies-list-ps5-xbox-series">GTABase — GTA 6 Trophy Guide &amp; Achievements List</a> (roadmap, ~200 hours to platinum, no mission replay, the Chapter 1 meditation warning, the Irredeemable profile warning)</li>
-    <li><a href="https://www.planetgta6.com/en/gta-6-trophies/">PlanetGTA6 — GTA 6 Trophies</a> (the 27 visible / 28 hidden split, no verified missable list yet, cheats disable trophies via PowerPyx)</li>
-    <li><a href="https://games.gg/grand-theft-auto-vi/guides/complete-grand-theft-auto-6-trophy-list/">Games.gg — GTA 6 Trophy List</a> (no mission replay, 15 manual save slots)</li>
-    <li><a href="https://gtadb.net/articles/gta-6-trophies-platinum-guide/?show_secrets=1">GTADB — GTA 6 PS5 Trophies &amp; Platinum Guide</a></li>
-    <li><a href="https://www.gtaboom.com/every-gta-6-trophy-and-achievement-at-launch-and-how-to-unlock-them-fc5f">GTA BOOM — GTA 6 Trophy and Achievement List</a></li>
-  </ul>
-  <p class="fineprint">This guide is unofficial and not affiliated with Rockstar Games. No Rockstar logo, artwork or game imagery is used here; the look is our own. All 55 trophies are single-player — there are no online trophies in the list.</p>
+<aside class="detail" id="detail" aria-label="Trophy guide" hidden>
+  <div class="detail-inner">
+    <button class="detail-close" id="detailClose" type="button" aria-label="Close guide">&times;</button>
+    <div id="detailBody"></div>
+  </div>
+</aside>
+
+<footer>
+  <p>Leonida Platinum — an unofficial fan guide. Grand Theft Auto and GTA are trademarks of Rockstar Games; this guide uses no Rockstar logo, artwork or game screenshots. Trophy names, descriptions and grades are as PlayStation publishes them. Guides are written in the guide author's own words, with the source of each fact named beside it. Your checklist is stored only in this browser (localStorage) and never leaves your device.</p>
 </footer>
 
 <script type="module" src="app.js"></script>

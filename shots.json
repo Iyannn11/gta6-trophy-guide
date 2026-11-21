@@ -1,5 +1,1 @@
-[
-  { "file": "1-checklist.jpg", "path": "/", "viewport": { "width": 1280, "height": 800 } },
-  { "file": "2-silver.jpg", "path": "/", "grade": "silver", "viewport": { "width": 1280, "height": 800 } },
-  { "file": "3-bronze.jpg", "path": "/", "grade": "bronze", "scroll": 1400, "viewport": { "width": 1280, "height": 800 } }
-]
+[{"file":"1-cover.jpg","note":"Hero with platinum medallion, progress ring, stats dashboard (next best trophy, hours remaining, per-grade and per-kind bars) and the top of the trophy checklist.","path":"/?view=checklist","viewport":{"height":800,"width":1280}},{"file":"2-detail.jpg","note":"The Shootist detail panel open: full guide, 5 steps, tip, difficulty and time, and named sources.","path":"/?detail=17","viewport":{"height":800,"width":1280}},{"file":"3-roadmap.jpg","note":"Roadmap to the platinum: five stages with per-stage checklists and the honest missable policy.","path":"/?view=roadmap","viewport":{"height":800,"width":1280}},{"file":"4-spoiler.jpg","note":"Spoiler setting on with the story kind filter: the 12 hidden story trophies show as Hidden Trophy until earned, while the rest stay visible.","path":"/?spoiler=1&kind=story","viewport":{"height":800,"width":1280}}]

@@ -1,48 +1,48 @@
+# Leonida Platinum — GTA VI Trophy Guide & Tracker
+
 [![make.fun · gta6-trophy-guide-01](https://make.fun/badge/gta6-trophy-guide-01.svg)](https://make.fun/bounty/gta6-trophy-guide-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 [![rank](https://make.fun/badge/gta6-trophy-guide-01/Iyannn11/gta6-trophy-guide/rank.svg)](https://make.fun/bounty/gta6-trophy-guide-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 [![reward](https://make.fun/badge/gta6-trophy-guide-01/Iyannn11/gta6-trophy-guide/reward.svg)](https://make.fun/bounty/gta6-trophy-guide-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 
-# Leonida Platinum — GTA VI Trophy Guide & Tracker
-
-A complete offline guide and tracker for all **55 PlayStation 5 trophies** of Grand Theft Auto VI (1 platinum, 2 gold, 6 silver, 46 bronze), built for the make.fun bounty `gta6-trophy-guide-01`.
+The complete offline guide and tracker for all **55 PlayStation 5 trophies** of Grand Theft Auto VI — 1 platinum, 2 gold, 6 silver, 46 bronze, 28 hidden, no online trophies.
 
 ## What it is
 
-- **Every trophy, with its official name, description and grade** exactly as PlayStation publishes them (via Exophase and PSNProfiles, 18 Nov 2026). 28 of the 55 are hidden on PlayStation until earned — this guide flags them.
-- **A guide in our own words for every trophy**: what to do, where, how, and when it can be missed — with its sources cited beside it (GTABase, PlanetGTA6, Games.gg, GTADB, GTA BOOM). No guide text is copied from another guide.
-- **A roadmap to the platinum** in 5 stages, built from the official descriptions: story chapters and missions first, then side missions, collectibles and activities, then robberies, money and cleanup — ending with 100% completion and the platinum.
-- **Missable flags**, honestly labelled: no verified missable list exists yet, so the guide flags the two trophies that carry a real warning (Positive Mental Attitude, Actions Speak Louder) and says so.
-- **A tracker**: tick trophies off and progress is saved in localStorage; export it to a file and import it back. Filters by kind (story, missable, collectibles, activities, online), by grade, and by earned-only; a spoiler setting hides the names and descriptions of hidden story trophies until they are earned.
+A static web app under `app/` — no build step, no network at run time. Open `app/index.html` in desktop Chrome with the network off and it works: it loads only its own files.
+
+- **Every trophy** with its official name, description and grade exactly as PlayStation publishes them, plus a step-by-step guide written in the author's own words, a difficulty rating (1–5), a time estimate, a practical tip, and the sources each fact comes from (named beside the guide: Exophase, PSNProfiles, GTABase, PlanetGTA6, Games.gg).
+- **Tracker**: tick trophies off in the checklist; progress saves in the browser (localStorage) and can be exported to a file and imported back, or reset.
+- **Stats dashboard**: completion % per grade and per kind, estimated hours remaining from the un-earned trophies, and a “next best trophy” suggestion — the easiest un-earned trophy first.
+- **Filters**: search, grade, kind (story, collectibles, activities, combat, exploration, economy, secret), missable-only, earned-only, and a spoiler setting that hides the names and descriptions of un-earned hidden story trophies until they are earned.
+- **Roadmap to the platinum**: five stages in play order, each with its own checklist of trophies, so you can tick progress off stage by stage.
+- **Missable policy, stated honestly**: PlayStation has not published a verified missable list, so this guide does not invent one. Only two trophies are flagged “possible” — Hot Together and Retail Therapy — because both need your partner beside you, and partner availability is tied to the story. Do them in chapters 2–3.
 
 ## Run it
 
-Static files under `app/` — no build step, no network at run time:
-
 ```sh
-node serve.ts   # serves app/ at http://localhost:8080
+node serve.ts
+# then open http://localhost:8080
 ```
 
-Open `app/index.html` in desktop Chrome with the network off and it works.
-
 ## Hand it in
-
-`main.ts` (Node 22, standard library only) copies `app/` and `screenshots/` to `/output` and writes `/output/dossier.json` with `buildDossier` from the vendored make.fun library:
 
 ```sh
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
 
-## Sources
+`main.ts` copies `app/` and `screenshots/` into the output directory and writes `dossier.json` with `buildDossier` from `vendor/makefun-frontend.ts`. Two runs write the same bytes.
 
-- Exophase and PSNProfiles — the official 55-trophy list (names, descriptions, grades, hidden flags)
-- [GTABase — GTA 6 Trophy Guide & Achievements List](https://www.gtabase.com/articles/gta-6/gta-6-achievements-trophies-list-ps5-xbox-series)
-- [PlanetGTA6 — GTA 6 Trophies](https://www.planetgta6.com/en/gta-6-trophies/)
-- [Games.gg — GTA 6 Trophy List](https://games.gg/grand-theft-auto-vi/guides/complete-grand-theft-auto-6-trophy-list/)
-- [GTADB — GTA 6 PS5 Trophies & Platinum Guide](https://gtadb.net/articles/gta-6-trophies-platinum-guide/?show_secrets=1)
-- [GTA BOOM — GTA 6 Trophy and Achievement List](https://www.gtaboom.com/every-gta-6-trophy-and-achievement-at-launch-and-how-to-unlock-them-fc5f)
+## Files
 
-This guide is unofficial and not affiliated with Rockstar Games. No Rockstar logo, artwork or game imagery is used; the look is our own.
+- `app/index.html` — the page
+- `app/style.css` — the Vice-neon look, grade-coloured trophy medallions
+- `app/app.js` — checklist, dashboard, roadmap, filters, spoiler setting, export/import
+- `app/data/trophies.json` — the 55 trophies: official name, description, grade, hidden flag, kind, roadmap stage, missable flag, difficulty, time estimate, guide, steps, tip, sources
+- `screenshots/` — renders of the real app in headless Chromium
+- `main.ts` — the hand-in program
+- `serve.ts` — the kit's static server
+- `vendor/makefun-frontend.ts` — make.fun's dossier library, unchanged from the kit
 
-## License
+## Note
 
-MIT — see `LICENSE`.
+An unofficial fan guide. Grand Theft Auto and GTA are trademarks of Rockstar Games; this guide uses no Rockstar logo, artwork or game screenshots.
